@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+    --card: 222 84% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 48 96% 53%;
+    --primary-foreground: 222 84% 5%;
+    --secondary: 13 81% 49%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 84% 10%;
+    --muted-foreground: 210 40% 90%;
+    --accent: 52 98% 73%;
+    --accent-foreground: 38 100% 48%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 84% 15%;
+    --input: 222 84% 15%;
+    --ring: 38 100% 48%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --button-green: 120 60% 50%;
+    --button-white: 0 0% 100%;
+  }
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+    --card: 222 84% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 48 96% 53%;
+    --primary-foreground: 222 84% 5%;
+    --secondary: 13 81% 49%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 84% 10%;
+    --muted-foreground: 210 40% 90%;
+    --accent: 52 98% 73%;
+    --accent-foreground: 38 100% 48%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 84% 15%;
+    --input: 222 84% 15%;
+    --ring: 38 100% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(0.4);
+  margin-top: 6rem;
+}
+
+@keyframes juggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes move-from-left {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-from-right {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-to-right {
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-juggle {
+  animation: juggle 2s ease-in-out infinite;
+}
