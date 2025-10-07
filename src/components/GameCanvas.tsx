@@ -117,7 +117,9 @@ const GameCanvas = ({ DogIcon, PillIcon }: GameCanvasProps) => {
     function drawPills() {
        if(!ctx || !pillImageRef.current) return;
       pills.forEach((pill) => {
-        ctx.drawImage(pillImageRef.current, pill.x, pill.y, pill.width, pill.height);
+        if (pillImageRef.current) {
+            ctx.drawImage(pillImageRef.current, pill.x, pill.y, pill.width, pill.height);
+        }
       });
     }
 
@@ -165,8 +167,17 @@ const GameCanvas = ({ DogIcon, PillIcon }: GameCanvasProps) => {
         dog.grounded = false;
       }
     };
+    
+    const handleTouchStart = (e: TouchEvent) => {
+        if (dog.grounded) {
+            e.preventDefault();
+            dog.dy = dog.jumpPower;
+            dog.grounded = false;
+        }
+    };
 
     document.addEventListener("keydown", handleKeyDown);
+    canvas.addEventListener("touchstart", handleTouchStart);
     const pillInterval = setInterval(spawnPill, 1500);
     
     gameLoop();
@@ -175,6 +186,7 @@ const GameCanvas = ({ DogIcon, PillIcon }: GameCanvasProps) => {
       cancelAnimationFrame(animationFrameId);
       clearInterval(pillInterval);
       document.removeEventListener("keydown", handleKeyDown);
+      canvas.removeEventListener("touchstart", handleTouchStart);
     };
   }, [gameStarted, isLoading]);
 

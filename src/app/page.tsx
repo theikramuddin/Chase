@@ -253,10 +253,10 @@ export default function Home() {
                     </div>
                   </Link>
                   <Button asChild size="lg" variant="outline" className="text-base py-7 px-6 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body">
-                      <a href="https://t.me/chase_login_portal" target="_blank" rel="noopener noreferrer">Telegram</a>
+                      <a href="https://t.me/Lpanda_decentralized" target="_blank" rel="noopener noreferrer">Telegram</a>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="text-base py-7 px-6 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body">
-                    <a href="https://x.com/ChaseThePill?t=ZXkA0bsyUblwQbPWCYMG8A&s=09" target="_blank" rel="noopener noreferrer">Twitter/X</a>
+                    <a href="https://x.com/Lpandatoken" target="_blank" rel="noopener noreferrer">Twitter/X</a>
                   </Button>
               </div>
 
