@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { PawPrint, ClipboardCopy, Check, Rocket, ExternalLink, InfinityIcon, Zap, Users, ShieldCheck, HeartHandshake, Gamepad2, Coins } from 'lucide-react';
+import { PawPrint, Copy, Check, Rocket, ExternalLink, InfinityIcon, Zap, Users, ShieldCheck, HeartHandshake, Gamepad2, Coins, Twitter, Send } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Table,
@@ -122,11 +122,11 @@ export default function Home() {
   };
 
   const memeImages = [
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.28.50_PM_1_m39tjc.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.27.41_PM_p8mhlb.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.28.50_PM_ebrg3x.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.29.37_PM_lueqip.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.28.50_PM_2_vuh344.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016432/photo_6284867396073884518_y_qkbrlj.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016433/photo_6285068001111379126_y_jccglg.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016432/photo_6284867396073884516_x_jlifwf.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016433/photo_6284867396073884514_y_dvshrv.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016432/photo_6284867396073884517_y_xgjspp.jpg",
     "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759350977/WhatsApp_Image_2025-10-02_at_12.54.08_AM_xcufit.jpg",
   ];
 
@@ -167,7 +167,7 @@ export default function Home() {
       >
         <div className={`w-64 h-64 ${dogAnimation}`}>
            <Image
-            src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.27.41_PM_p8mhlb.jpg"
+            src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760044540/photo_6284939564409359444_y_geuwlf.jpg"
             alt="Intro Dog"
             data-ai-hint="dog mascot"
             width={256}
@@ -233,7 +233,7 @@ export default function Home() {
             <div className="flex flex-col items-start gap-6">
               <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary border border-primary/20">
                 <Rocket className="w-4 h-4" />
-                Now on Base
+                Now on Solana
               </div>
 
               <h1 className="font-display text-5xl md:text-7xl font-bold text-primary">
@@ -252,22 +252,26 @@ export default function Home() {
                       <span className="text-black font-bold">$CHASE</span>
                     </div>
                   </Link>
-                  <Button asChild size="lg" variant="outline" className="text-base py-7 px-6 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body">
-                      <a href="https://t.me/Lpanda_decentralized" target="_blank" rel="noopener noreferrer">Telegram</a>
+                  <Button asChild size="icon" variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
+                      <a href="https://t.me/Lpanda_decentralized" target="_blank" rel="noopener noreferrer">
+                        <Send className="w-6 h-6" />
+                      </a>
                   </Button>
-                  <Button asChild size="lg" variant="outline" className="text-base py-7 px-6 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body">
-                    <a href="https://x.com/Lpandatoken" target="_blank" rel="noopener noreferrer">Twitter/X</a>
+                  <Button asChild size="icon" variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
+                    <a href="https://x.com/Lpandatoken" target="_blank" rel="noopener noreferrer">
+                      <Twitter className="w-6 h-6" />
+                    </a>
                   </Button>
               </div>
 
               <div className="relative w-full max-w-md mt-6">
-                <p className="text-xs text-muted-foreground mb-1">Contract Address</p>
+                <p className="text-s text-muted-foreground mb-1 text-center">Contract Address</p>
                 <div className="relative">
                   <input
                     type="text"
                     readOnly
                     value={contractAddress}
-                    className="w-full bg-input border border-border rounded-md p-3 pr-12 font-mono text-sm text-foreground"
+                    className="w-full bg-input border border-border rounded-md p-3 pr-12 font-mono text-sm text-foreground text-center"
                   />
                   <Button 
                     size="icon" 
@@ -275,7 +279,7 @@ export default function Home() {
                     className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
                     onClick={() => copyToClipboard(contractAddress)}
                   >
-                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <ClipboardCopy className="w-4 h-4" />}
+                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
                   </Button>
                 </div>
               </div>
@@ -302,15 +306,17 @@ export default function Home() {
             </div>
             
             <div className="flex justify-center items-center">
-                <Image
-                src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759433872/WhatsApp_Image_2025-10-03_at_1.01.43_AM_wmgvns.jpg"
-                alt="$CHASE"
-                data-ai-hint="logo abstract"
-                width={400}
-                height={400}
-                className="rounded-full border-4 border-primary shadow-[0_0_20px_theme(colors.primary)] opacity-80"
-                priority
-                />
+              <div className="relative w-[400px] h-[400px] bg-primary/10 rounded-full flex items-center justify-center animate-slow-bounce shadow-[0_0_40px_theme(colors.primary)] border-2 border-primary/50">
+                  <Image
+                  src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759433872/WhatsApp_Image_2025-10-03_at_1.01.43_AM_wmgvns.jpg"
+                  alt="$CHASE"
+                  data-ai-hint="logo abstract"
+                  width={380}
+                  height={380}
+                  className="rounded-full"
+                  priority
+                  />
+              </div>
             </div>
         </section>
 
@@ -346,7 +352,7 @@ export default function Home() {
                   className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
                   onClick={() => copyToClipboard(ownerWalletAddress)}
                 >
-                  {copied ? <Check className="w-4 h-4 text-green-500" /> : <ClipboardCopy className="w-4 h-4" />}
+                  {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
                 </Button>
               </div>
 
@@ -778,6 +784,9 @@ export default function Home() {
 
     
 
+
+
+    
 
 
     
