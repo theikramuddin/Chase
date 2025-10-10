@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { PawPrint, Copy, Check, Rocket, ExternalLink, InfinityIcon, Zap, Users, ShieldCheck, HeartHandshake, Gamepad2, Coins, Twitter, Send } from 'lucide-react';
+import { PawPrint, Copy, Check, Rocket, ExternalLink, InfinityIcon, Zap, Users, ShieldCheck, HeartHandshake, Gamepad2, Coins, Twitter, Send, Menu } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Table,
@@ -18,6 +18,7 @@ import {
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { QRCodeSVG } from "qrcode.react";
 import GameCanvas from '@/components/GameCanvas';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Dog = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="#ff9933" stroke="black" strokeWidth="1" {...props}>
@@ -35,10 +36,16 @@ const PillIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 
-const NavLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
-  <Link href={href} className="text-sm font-medium text-white/80 hover:text-white transition-colors">
-    {children}
-  </Link>
+const NavLinks = ({ className, onLinkClick }: { className?: string, onLinkClick?: () => void }) => (
+    <div className={className}>
+      <Link href="#about" onClick={onLinkClick} className="text-m font-medium text-white/80 hover:text-white transition-colors">Our Story</Link>
+      <Link href="#meme-gallery" onClick={onLinkClick} className="text-m font-medium text-white/80 hover:text-white transition-colors">Artwork</Link>
+      {/* <Link href="#tokenomics" onClick={onLinkClick} className="text-sm font-medium text-white/80 hover:text-white transition-colors">Tokenomics</Link> */}
+      {/* <Link href="#mission" onClick={onLinkClick} className="text-sm font-medium text-white/80 hover:text-white transition-colors">Mission</Link> */}
+      <Link href="#roadmap" onClick={onLinkClick} className="text-m font-medium text-white/80 hover:text-white transition-colors">Roadmap</Link>
+      <Link href="#hall-of-fame" onClick={onLinkClick} className="text-m font-medium text-white/80 hover:text-white transition-colors">Hall of Fame</Link>
+      {/* <Link href="#game" onClick={onLinkClick} className="text-sm font-medium text-white/80 hover:text-white transition-colors">Game</Link> */}
+    </div>
 );
 
 const DexScreenerEmbed = () => (
@@ -90,6 +97,7 @@ export default function Home() {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const buttonVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 
   useEffect(() => {
@@ -205,21 +213,26 @@ export default function Home() {
               <PawPrint className="text-2xl" />
               $CHASE
             </Link>
-            <div className="hidden md:flex items-center gap-6">
-              <NavLink href="#about">Our Story</NavLink>
-              <NavLink href="#meme-gallery">Artwork</NavLink>
-              <NavLink href="#tokenomics">Tokenomics</NavLink>
-              <NavLink href="#mission">Mission</NavLink>
-              <NavLink href="#roadmap">Roadmap</NavLink>
-              <NavLink href="#hall-of-fame">Hall of Fame</NavLink>
-              <NavLink href="#game">Game</NavLink>
-              {/* <NavLink href="#faq">FAQ</NavLink> */}
+            <NavLinks className="hidden md:flex items-center gap-6" />
+            <div className="flex items-center gap-2">
+              <Button asChild>
+                <Link href="#how-to-buy">
+                  Join us! 👍
+                </Link>
+              </Button>
+              <div className="md:hidden">
+                <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                    <SheetTrigger asChild>
+                        <Button variant="ghost" size="icon">
+                            <Menu className="w-6 h-6"/>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="bg-[#1e1c2a]/90 border-l-white/10">
+                         <NavLinks className="flex flex-col items-center justify-center h-full gap-8" onLinkClick={() => setMobileMenuOpen(false)} />
+                    </SheetContent>
+                </Sheet>
+              </div>
             </div>
-            <Button>
-              <Link href="#how-to-buy">
-                Join us! 👍
-              </Link>
-            </Button>
           </nav>
         </div>
       </header>
@@ -250,12 +263,18 @@ export default function Home() {
                       <span className="text-black font-bold">$CHASE</span>
                     </div>
                   </Link>
-                  <Button asChild variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
+
+                  {/* <Button asChild variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
                       <a href="https://t.me/chase_login_portal" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                         <Send className="w-6 h-6" />
                         <span>Telegram</span>
                       </a>
-                  </Button>
+                  </Button> */}
+
+                  <a href="https://t.me/Lpanda_decentralized" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-14 w-20 rounded-full bg-foreground/10 hover:bg-foreground/20">
+                    <Image src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760129962/WhatsApp_Image_2025-10-11_at_2.28.04_AM-removebg-preview_lnpqlx.png" alt="Telegram" width={70} height={48} />
+                  </a>
+
                   <Button asChild variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
                     <a href="https://x.com/ChaseThePill?t=ZXkA0bsyUblwQbPWCYMG8A&s=09" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                       <Twitter className="w-6 h-6" />
@@ -411,8 +430,8 @@ export default function Home() {
 
         {/* About Section */}
         <h2 className="font-display text-5xl text-primary mb-5 text-center">TRADE $CHASE</h2>
-        <section id="about" className="py-24 grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-            <Card className="bg-card/50 border-2 border-primary/50">
+        <section id="about" className="py-24 flex justify-center items-start max-w-6xl mx-auto">
+            <Card className="bg-card/50 border-2 border-primary/50 max-w-xl">
               <CardHeader>
                 <CardTitle className="font-display text-primary">WHY $CHASE?</CardTitle>
               </CardHeader>
@@ -450,14 +469,14 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
-            <div className="h-[550px] w-full">
+            {/* <div className="h-[550px] w-full">
                 <DexScreenerEmbed />
-            </div>
+            </div> */}
         </section>
 
 
         {/* Tokenomics Section */}
-        <section id="tokenomics" className="py-24 max-w-6xl mx-auto">
+        {/* <section id="tokenomics" className="py-24 max-w-6xl mx-auto">
           <h2 className="font-display text-5xl text-primary mb-12 text-center">TOKENOMICS</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="w-full h-[400px]">
@@ -512,10 +531,10 @@ export default function Home() {
               <p className="text-center text-muted-foreground mt-4">Total Supply: 1,000,000,000 $CHASE</p>
             </div>
           </div>
-        </section>
+        </section> */}
         
         {/* Token Distribution Section */}
-        <section id="token-distribution" className="py-24 max-w-4xl mx-auto">
+        {/* <section id="token-distribution" className="py-24 max-w-4xl mx-auto">
           <h2 className="font-display text-5xl text-primary mb-12 text-center">Token Distribution</h2>
           <p className="text-center text-2xl text-muted-foreground mb-12 font-body">Total Supply: 1,000,000,000 $CHASE</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -532,7 +551,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
 
         {/* Roadmap Section */}
@@ -709,7 +728,7 @@ export default function Home() {
           </div>
           <div className="relative max-w-2xl mx-auto border-4 border-primary rounded-lg p-4 h-[400px] flex items-center justify-center bg-card/20">
             <Image
-              src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759483335/OIG4_1_j7c9k9.png"
+              src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760018061/360_F_204257104_jnqWGXAbNuyORkJG9yw9tdfutvkmJblt-removebg-preview_mwuqx8.png"
               alt="Crown"
               width={150}
               height={150}
@@ -728,7 +747,7 @@ export default function Home() {
         </section>
 
         {/* Game Section */}
-        <section id="game" className="py-24 text-center">
+        {/* <section id="game" className="py-24 text-center">
           <h2 className="font-display text-5xl text-primary mb-12">$CHASE: The Game</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="relative w-full aspect-video rounded-lg border-4 bg-blue-200 border-primary shadow-[0_0_20px_theme(colors.primary)] overflow-hidden">
@@ -767,7 +786,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
       </main>
 
