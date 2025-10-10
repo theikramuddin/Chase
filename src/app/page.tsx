@@ -122,11 +122,11 @@ export default function Home() {
   };
 
   const memeImages = [
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016432/photo_6284867396073884518_y_qkbrlj.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016433/photo_6285068001111379126_y_jccglg.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016432/photo_6284867396073884516_x_jlifwf.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016433/photo_6284867396073884514_y_dvshrv.jpg",
-    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760016432/photo_6284867396073884517_y_xgjspp.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.28.50_PM_1_m39tjc.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.27.41_PM_p8mhlb.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.28.50_PM_ebrg3x.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.29.37_PM_lueqip.jpg",
+    "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759480609/WhatsApp_Image_2025-10-03_at_1.28.50_PM_2_vuh344.jpg",
     "https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759350977/WhatsApp_Image_2025-10-02_at_12.54.08_AM_xcufit.jpg",
   ];
 
@@ -158,13 +158,11 @@ export default function Home() {
   if (showIntro) {
     return (
       <div 
-        className={`flex flex-col items-center justify-center min-h-screen w-full overflow-hidden transition-opacity duration-500 ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
-        style={{
-          backgroundImage: "url('https://res.cloudinary.com/ds0ifdrhk/image/upload/v1759602517/WhatsApp_Image_2025-10-04_at_11.25.25_PM_tctbpy.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className={`relative flex flex-col items-center justify-center min-h-screen w-full overflow-hidden transition-opacity duration-500 ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
       >
+        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover -z-10">
+          <source src="https://res.cloudinary.com/ds0ifdrhk/video/upload/v1760044541/document_6284939563949366410_cn7xtb.mp4" type="video/mp4" />
+        </video>
         <div className={`w-64 h-64 ${dogAnimation}`}>
            <Image
             src="https://res.cloudinary.com/ds0ifdrhk/image/upload/v1760044540/photo_6284939564409359444_y_geuwlf.jpg"
@@ -252,14 +250,16 @@ export default function Home() {
                       <span className="text-black font-bold">$CHASE</span>
                     </div>
                   </Link>
-                  <Button asChild size="icon" variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
-                      <a href="https://t.me/Lpanda_decentralized" target="_blank" rel="noopener noreferrer">
+                  <Button asChild variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
+                      <a href="https://t.me/chase_login_portal" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                         <Send className="w-6 h-6" />
+                        <span>Telegram</span>
                       </a>
                   </Button>
-                  <Button asChild size="icon" variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
-                    <a href="https://x.com/Lpandatoken" target="_blank" rel="noopener noreferrer">
+                  <Button asChild variant="outline" className="text-base p-3 border-foreground/50 bg-foreground/10 hover:bg-foreground/20 font-body rounded-full">
+                    <a href="https://x.com/ChaseThePill?t=ZXkA0bsyUblwQbPWCYMG8A&s=09" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                       <Twitter className="w-6 h-6" />
+                      <span>Twitter</span>
                     </a>
                   </Button>
               </div>
@@ -594,7 +594,7 @@ export default function Home() {
                   </TableCell>
                   <TableCell>
                     <ul className="list-disc list-inside space-y-1">
-                      <li>DAO Governance v1: The Panda Council</li>
+                      <li>DAO Governance v1: The Chase Council</li>
                       <li>Snapshot Voting Live</li>
                       <li>First Community Treasury Proposal</li>
                     </ul>
@@ -604,7 +604,7 @@ export default function Home() {
                   <TableCell className="font-bold">Q1 2026<br/><span className="font-normal text-muted-foreground">Phase 3: The Great Expansion</span></TableCell>
                   <TableCell>
                     <ul className="list-disc list-inside space-y-1">
-                      <li>zk-Rollup Testnet: "Pandascale"</li>
+                      <li>zk-Rollup Testnet: "Chase Scale"</li>
                       <li>Testnet Release</li>
                       <li>SDK & Developer Toolkit Launch</li>
                     </ul>
@@ -628,7 +628,7 @@ export default function Home() {
                   <TableCell className="font-bold">Q2 2026<br/><span className="font-normal text-muted-foreground">Phase 4: Ecosystem Flourish</span></TableCell>
                   <TableCell>
                     <ul className="list-disc list-inside space-y-1">
-                      <li>Mainnet Upgrade: "The Pandamonium Fork"</li>
+                      <li>Mainnet Upgrade: "The Chase Fork"</li>
                       <li>zk-Rollup Mainnet Activation</li>
                       <li>{'>'}90% Reduction in Gas Fees</li>
                     </ul>
@@ -637,7 +637,7 @@ export default function Home() {
                     <ul className="list-disc list-inside space-y-1">
                       <li>dApp Incubator Program</li>
                       <li>10+ Live dApps on Network</li>
-                      <li>Native DEX: "PandaSwap" Launch</li>
+                      <li>Native DEX: "Chase Swap" Launch</li>
                     </ul>
                   </TableCell>
                   <TableCell>
